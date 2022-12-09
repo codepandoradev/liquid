@@ -13,6 +13,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='user_avatar',
-            field=models.TextField(default='https://cdn-icons-png.flaticon.com/512/1160/1160040.png?w=360'),
+            field=models.TextField(
+                default='https://cdn-icons-png.flaticon.com/512/1160/1160040.png?w=360'
+            ),
         ),
     ]

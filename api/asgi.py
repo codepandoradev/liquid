@@ -13,8 +13,6 @@ from app.base.urls import ws_urlpatterns as base_ws_urls  # noqa:E402
 
 application = ProtocolTypeRouter(
     {
-        'websocket': TokenAuthMiddleware(
-            WsLogMiddleware(URLRouter(base_ws_urls))
-        ),
+        'websocket': TokenAuthMiddleware(WsLogMiddleware(URLRouter(base_ws_urls))),
     }
 )
