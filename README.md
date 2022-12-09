@@ -1,1 +1,1 @@
-# NFT-Mining-backend
+# Liquid
