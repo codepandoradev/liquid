@@ -90,7 +90,6 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',
     'drf_spectacular',
-    'drf_yasg',
     'django_celery_beat',
     'djcelery_email',
     'djmoney',
@@ -98,10 +97,6 @@ INSTALLED_APPS = [
     # own apps
     'app.base',
     'app.users',
-    'app.rigs',
-    'app.wallet',
-    'app.management',
-    'app.support',
 ]
 
 REST_FRAMEWORK = {
@@ -336,6 +331,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # auth
 
+AUTH_USER_MODEL = 'users.User'
 SESSION_ON_LOGIN = env('SESSION_ON_LOGIN', default=DEBUG)
 
 # password
