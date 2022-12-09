@@ -17,6 +17,7 @@ jobs:
           if [[ "${{ env.TASK_NUMBER }}" =~ ^[[:digit:]]+$ ]]; then exit 0; fi
       - uses: repo-sync/pull-request@v2.9
         with:
+          destination_branch: main
           pr_title: ${GITHUB_REF##*/}
           pr_body: "close #${{ env.TASK_NUMBER }}"
           pr_assignee: ${{ github.event.commits[0].author.username }}
