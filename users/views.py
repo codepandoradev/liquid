@@ -205,7 +205,6 @@ def create_user(request):
         serializer = UserSerializer(data=request.data)
         
         if serializer.is_valid():
-            # serializer.data["password"] = "eblan"
             token = generate_token()
             user = serializer.save()
             token_serializer = TokenSerializer(data={"user":user,"token":token})
