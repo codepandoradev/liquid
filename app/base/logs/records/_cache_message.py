@@ -2,7 +2,7 @@ import pprint
 from logging import LogRecord
 from typing import Optional
 
-from django.conf import settings
+from api import settings
 
 __all__ = ['CacheMessageLogRecord']
 
@@ -20,9 +20,12 @@ class CacheMessageLogRecord(LogRecord):
                 return str(self.msg) % self.args
             except TypeError:
                 return str(self.msg)
-        if settings.LOG_PRETTY:
+        if getattr(settings, 'LOG_PRETTY', False):
             return pprint.pformat(
-                self.msg, width=settings.LOG_MAX_LENGTH - 4, depth=10, sort_dicts=False
+                self.msg,
+                width=settings.LOG_MAX_LENGTH - 4,
+                depth=10,
+                sort_dicts=False,
             )
         return str(self.msg)
 
