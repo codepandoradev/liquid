@@ -15,7 +15,7 @@ jobs:
           branch_name=${GITHUB_REF##*/}
           echo "TASK_NUMBER=${branch_name/task-/}" >> $GITHUB_ENV
           if [[ "${{ env.TASK_NUMBER }}" =~ ^[[:digit:]]+$ ]]; then exit 0; fi
-      - uses: repo-sync/pull-request@v2.9
+      - uses: repo-sync/pull-request@v2.11
         with:
           destination_branch: main
           pr_title: ${GITHUB_REF##*/}
